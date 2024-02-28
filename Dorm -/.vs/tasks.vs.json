@@ -1,0 +1,10 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskLabel": "task-eLibraryManagement",
+      "appliesTo": "eLibraryManagement/",
+      "type": "launch"
+    }
+  ]
+}

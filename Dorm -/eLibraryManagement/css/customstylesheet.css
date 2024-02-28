@@ -1,0 +1,82 @@
+﻿/* NAV BAR */ /* NAV BAR */ /* NAV BAR */ /* NAV BAR */
+
+.navbar-brand {
+    color: #ff6a00;
+   
+}
+
+.navbar-toggler {
+    background: #ff0000;
+    
+}
+
+.nav-link {
+    color:#000000
+}
+
+.nav-link:hover {
+    color: #ff6a00;
+}
+
+.navbar-brand {
+    padding-top: 7px;
+    padding-bottom: 7px;
+    font-weight: bold;
+    
+}
+
+.nav-item{
+    padding:4px 6px;
+}
+
+.navbar-brand img {
+    padding:5px 5px;
+    position:center;
+}
+
+.navbar navbar-expand-lg navbar-dark {
+    padding-bottom:3px;
+}
+
+/* button style in user login page*/
+
+.button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.nounderline {
+    text-decoration: none;
+    color: #3d2cf2;
+}
+
+    .nounderline:hover {
+        color: limegreen; 
+    }
+/* NAV BAR */ /* NAV BAR */ /* NAV BAR */ /* NAV BAR */
+/* Home page image */ /*Home page image */ /* Home page image */ /* Home page image */
+/* Home page image */ /*Home page image */ /* Home page image */ /* Home page image */
+/* Footer Css */ /* Footer Css */ /* Footer Css */
+.footerlinks {
+    color: #ffd800;
+    text-decoration: none !important;
+}
+
+.footerlinks:hover{
+    color:#ff6a00;
+}
+
+#footer1{
+    background:#3b5842af
+}
+
+#footer2 {
+    background: #00ff90a9
+}
+
+/* Footer Css */   /* Footer Css */ /* Footer Css */

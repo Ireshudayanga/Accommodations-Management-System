@@ -1,0 +1,103 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="eLibraryManagement.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+
+    <%-- bootstrap css --%>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <%-- datatable css --%>
+    <link href="datatables/css/dataTables.dataTables.min.css" rel="stylesheet" />
+    <%-- fontawesome css --%>
+    <link href="fontawesome/css/all.css" rel="stylesheet" />
+    <%-- Our Coustom css --%>
+    <link href="css/customstylesheet.css" rel="stylesheet" />
+    <%-- jquery --%>
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+
+<body>
+    <form id="form1" runat="server">
+        
+        <div>
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <a class="navbar-brand" href="#">
+               
+                &nbsp; DORM
+                </a>
+
+                <button class ="navbar-toggler" type="button" data-toggle="collapse" 
+                    data-target ="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" arial-label="Toogle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                </button>
+
+               <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                     <li class="nav-item active">
+                       <a class="nav-link" href="home.aspx">Home <span class="sr-only">(current)</span></a>
+                     </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                  </li>
+                   <li class="nav-item">
+                     <a class="nav-link" href="#">Link</a>
+                   </li>   
+                  </ul>
+               </div>
+             </nav>
+        </div>
+
+        <!-- Main Content Placeholder -->
+
+        <div>
+             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+             </asp:ContentPlaceHolder>
+        </div>
+
+        <!-- Main Content Placeholder -->
+
+
+        <!-- Footer  -->
+
+        <footer>
+            <div id="footer1" class="container-fluid">
+                <div class ="row">
+                    <div class="col-xl-12 col-sm-12 col-md-12 text-center" >
+                        <p>
+                            <asp:LinkButton Class ="footerlinks" ID="LinkButton6"
+                            runat="server">Admin Login</asp:LinkButton> &nbsp
+                            <asp:LinkButton Class ="footerlinks" ID="LinkButton11"
+                            runat="server">Author Management</asp:LinkButton> &nbsp
+                            <asp:LinkButton Class ="footerlinks" ID="LinkButton12"
+                            runat="server">Publisher Management</asp:LinkButton> &nbsp
+                            <asp:LinkButton Class ="footerlinks" ID="LinkButton8"
+                            runat="server">Book Inventory</asp:LinkButton> &nbsp
+                            <asp:LinkButton Class ="footerlinks" ID="LinkButton9"
+                            runat="server">Book issuing</asp:LinkButton> &nbsp
+                            <asp:LinkButton Class ="footerlinks" ID="LinkButton10"
+                            runat="server">Member Management</asp:LinkButton> &nbsp
+                        </p>
+                    </div>
+                </div>
+            </div>
+                <div id="footer2" class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                            @All right Reserved.
+                        </div>
+                    </div>
+                </div>
+        </footer>
+
+        <!-- Footer  -->
+
+    </form>
+</body>
+</html>
