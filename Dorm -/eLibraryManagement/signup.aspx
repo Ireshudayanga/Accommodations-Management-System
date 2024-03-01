@@ -120,7 +120,7 @@
                     <div class="row my-custom-margin">
                         <div class="col-md-12">
                             <center>
-                            <span class="badge rounded-pill text-bg-primary">Login Credentials</span>
+                            <span class="badge rounded-pill text-bg-primary">Login Credential</span>
                             </center>
                          </div>
                     </div>
