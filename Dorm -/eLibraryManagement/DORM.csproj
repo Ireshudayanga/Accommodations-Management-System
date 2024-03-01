@@ -67,7 +67,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="adminAccommodationManagement.aspx" />
     <Content Include="adminlogin.aspx" />
+    <Content Include="AdminPubisherManagement.aspx" />
     <Content Include="bootstrap\css\bootstrap.min.css" />
     <Content Include="bootstrap\js\bootstrap.bundle.min.js" />
     <Content Include="css\customstylesheet.css" />
@@ -2153,6 +2155,7 @@
     <Content Include="images\Capture.PNG" />
     <Content Include="images\Home icon.png" />
     <Content Include="images\home_1946436.png" />
+    <Content Include="images\Publisher Management.jpg" />
     <Content Include="images\user Icon.png" />
     <Content Include="signup.aspx" />
     <Content Include="userlogin.aspx" />
@@ -2161,12 +2164,26 @@
     <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="adminAccommodationManagement.aspx.cs">
+      <DependentUpon>adminAccommodationManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adminAccommodationManagement.aspx.designer.cs">
+      <DependentUpon>adminAccommodationManagement.aspx</DependentUpon>
+    </Compile>
     <Compile Include="adminlogin.aspx.cs">
       <DependentUpon>adminlogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="adminlogin.aspx.designer.cs">
       <DependentUpon>adminlogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPubisherManagement.aspx.cs">
+      <DependentUpon>AdminPubisherManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPubisherManagement.aspx.designer.cs">
+      <DependentUpon>AdminPubisherManagement.aspx</DependentUpon>
     </Compile>
     <Compile Include="home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>
