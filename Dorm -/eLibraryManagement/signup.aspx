@@ -7,6 +7,10 @@
     margin: 13px;
 }
 
+.margin{
+    margin:5px;
+}
+
     </style>
 </asp:Content>
 
@@ -123,24 +127,23 @@
 
                   
                     
-                    <div class="row my-custom-margin">
+                    <div class="row ">
                         <div class="col-md-6">
-                            <label>Username: </label>
+                            <label class="margin">Username: </label>
                             <div class="form-group">
                                 <asp:TextBox CssClass="form-control" ID="TextBox9"
                                  runat="server" placeholder="usrename"></asp:TextBox>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <label>Password</label>
+                            <label class="margin">Password</label>
                             <div class="form-group">
                                 <asp:TextBox CssClass="form-control" ID="TextBox10"
                                 runat="server" placeholder="password" TextMode="Password"></asp:TextBox>
                             </div>
                         </div>
                     </div>
-
-
+                    <br />
                 </div>
             </div>
             <div class="homelink my-custom-margin">
