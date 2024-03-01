@@ -11,6 +11,21 @@
     margin:5px;
 }
 
+ .button {
+     background-color: #04AA6D;
+     color: white;
+     padding: 7px ;
+     margin-top: 15px;
+     border: none;
+     cursor: pointer;
+     width: 75%;
+     border-radius: 10px;
+     
+ }
+
+ .button:hover{
+     background-color:#2f692f;
+ }
     </style>
 </asp:Content>
 
@@ -127,7 +142,7 @@
 
                   
                     
-                    <div class="row ">
+                    <div class="row my-custom-margin ">
                         <div class="col-md-6">
                             <label class="margin">Username: </label>
                             <div class="form-group">
@@ -142,6 +157,11 @@
                                 runat="server" placeholder="password" TextMode="Password"></asp:TextBox>
                             </div>
                         </div>
+                    </div>
+                    <div class="form-group  my-custom-margin">
+                        <center>
+                        <asp:Button class="button" ID="Button1" runat="server" Text="Sign Up" />
+                        </center>
                     </div>
                     <br />
                 </div>

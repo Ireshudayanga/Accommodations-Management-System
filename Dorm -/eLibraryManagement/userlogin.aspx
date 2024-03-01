@@ -14,6 +14,11 @@
             border-radius: 10px;
             
         }
+
+        .button:hover{
+             background-color:#2f692f;
+         }
+
         .signup{
             background-color:#0094ff;
             color: white;
@@ -26,6 +31,9 @@
         }
         .container{
             margin:48px;
+        }
+        .signup:hover{
+            background-color:#316285;
         }
     </style>
 </asp:Content>
