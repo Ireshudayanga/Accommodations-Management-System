@@ -1,9 +1,15 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="adminAccommodationManagement.aspx.cs" Inherits="eLibraryManagement.AdminPubisherManagement" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="adminAccomodationIssue.aspx.cs" Inherits="eLibraryManagement.adminAccomodationIssue" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-        <style>    
+ 
+ <style>   
+     
     /* Custom CSS */
 .my-custom-margin {
     margin: 13px;
+}
+
+.my-custom-padding {
+    margin-left:80px;
 }
 
 .my-custom-button{
@@ -30,12 +36,13 @@
      background-color:#2f692f;
  }
     </style>
+
 </asp:Content>
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-   <div class="container">
+       <div class="container-fluid">
     <div class="row">
         <div class="col-md-6 ">
             <div class="card">
@@ -44,7 +51,7 @@
                      <div class="row">
                         <div class="col">
                             <center>
-                                <h3>Accommodation Manage</h3>
+                                <h3>Accommodation Issues</h3>
                             </center>
                         </div>
                     </div>
@@ -52,7 +59,7 @@
                     <div class="row">
                         <div class="col">
                             <center>
-                                <img src="images/Accommodation%20manage.jpg" width="100px" />
+                                <img src="images/accommodation%20Issue.jpg" width="100px" />
                             </center>
                         </div>
                     </div>
@@ -66,7 +73,7 @@
                     </div>
 
                     <div class="row my-custom-margin">
-                        <div class="col-md-4 ">
+                        <div class="col-md-6 ">
                             <label>Accommodation ID</label>
                             <div class="form-group">
                                 <div class="input-group">
@@ -76,24 +83,62 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-8">
-                            <label>Owner Name</label>
+                        <div class="col-md-6">
+                            <label>Publisher ID</label>
                             <div class="form-group">
+                                <div class="input-group">
                                 <asp:TextBox CssClass="form-control" ID="TextBox3"
-                                runat="server" placeholder="Owner" ></asp:TextBox>
+                                runat="server" placeholder="Id" ></asp:TextBox>
+                                <asp:Button class="btn  btn-block btn-primary" ID="Button5" runat="server" Text="Search" />
+                        
+                                </div>
                             </div>
                         </div>
                     </div>
 
+                     <div class="row my-custom-margin">
+                         <div class="col-md-6 ">
+                            <label>Owner Name</label>
+                            <div class="form-group">
+                                <asp:TextBox CssClass="form-control" ID="TextBox2"
+                                runat="server" placeholder="" ReadOnly="True"></asp:TextBox>
+                          </div>
+                         </div>
+                         <div class="col-md-6">
+                             <label>Resident Name</label>
+                            <div class="form-group">
+                                 <asp:TextBox CssClass="form-control" ID="TextBox4"
+                                 runat="server" placeholder="" ReadOnly="True" ></asp:TextBox>
+                             </div>
+                         </div>
+                     </div>     
+                    
+                      <div class="row my-custom-margin">
+                        <div class="col-md-6 ">
+                            <label>Issue Date</label>
+                             <div class="form-group">
+                              <asp:TextBox CssClass="form-control" ID="TextBox5"
+                              runat="server" placeholder="" TextMode="Date"></asp:TextBox>
+                         </div>
+                          </div>
+                          <div class="col-md-6">
+                              <label>End Date</label>
+                          <div class="form-group">
+                                <asp:TextBox CssClass="form-control" ID="TextBox6"
+                                runat="server" placeholder="" TextMode="Date"  ></asp:TextBox>
+                          </div>
+                       </div>
+                    </div>  
+
+                    <br />
+
                     <div class="row my-custom-margin">
-                        <div class="col-md-4 ">
-                            <asp:Button class="btn btn-lg btn-block btn-success my-custom-button" ID="Button2" runat="server" Text="Add" />
+
+                        <div class="col-md-6 ">
+                            <asp:Button class="btn btn-lg btn-block btn-success my-custom-button my-custom-padding " ID="Button2" runat="server" Text="Issue" />
                         </div>
-                        <div class="col-md-4">
-                            <asp:Button class="btn btn-lg btn-block btn-primary my-custom-button" ID="Button3" runat="server" Text="Update" />
-                        </div>
-                        <div class="col-md-4">
-                            <asp:Button class="btn btn-lg btn-block btn-danger my-custom-button" ID="Button4" runat="server" Text="Delete" />
+                        <div class="col-md-6">
+                            <asp:Button class="btn btn-lg btn-block btn-danger my-custom-button" ID="Button4" runat="server" Text="Return" />
                         </div>
                     </div>
 
@@ -117,7 +162,7 @@
             <div class="row">
                 <div class="col">
                     <center>
-                        <h4>Accommodation List</h4>
+                        <h4>Details</h4>
                     </center>
                 </div>
             </div>

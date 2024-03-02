@@ -1,6 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="adminAccommodationManagement.aspx.cs" Inherits="eLibraryManagement.AdminPubisherManagement" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="adminPublisherManagement.aspx.cs" Inherits="eLibraryManagement.adminAccommodationManagement" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-        <style>    
+
+    <style>    
     /* Custom CSS */
 .my-custom-margin {
     margin: 13px;
@@ -30,8 +31,8 @@
      background-color:#2f692f;
  }
     </style>
-</asp:Content>
 
+</asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -44,7 +45,7 @@
                      <div class="row">
                         <div class="col">
                             <center>
-                                <h3>Accommodation Manage</h3>
+                                <h3>Publisher Manage</h3>
                             </center>
                         </div>
                     </div>
@@ -52,7 +53,7 @@
                     <div class="row">
                         <div class="col">
                             <center>
-                                <img src="images/Accommodation%20manage.jpg" width="100px" />
+                                <img src="images/Publisher%20Management.jpg" width="100px" />
                             </center>
                         </div>
                     </div>
@@ -67,7 +68,7 @@
 
                     <div class="row my-custom-margin">
                         <div class="col-md-4 ">
-                            <label>Accommodation ID</label>
+                            <label>Publisher ID</label>
                             <div class="form-group">
                                 <div class="input-group">
                                 <asp:TextBox CssClass="form-control" ID="TextBox1"
@@ -77,10 +78,10 @@
                             </div>
                         </div>
                         <div class="col-md-8">
-                            <label>Owner Name</label>
+                            <label>Author Name</label>
                             <div class="form-group">
                                 <asp:TextBox CssClass="form-control" ID="TextBox3"
-                                runat="server" placeholder="Owner" ></asp:TextBox>
+                                runat="server" placeholder="Author Name" ></asp:TextBox>
                             </div>
                         </div>
                     </div>
@@ -117,7 +118,7 @@
             <div class="row">
                 <div class="col">
                     <center>
-                        <h4>Accommodation List</h4>
+                        <h4>Publisher List</h4>
                     </center>
                 </div>
             </div>

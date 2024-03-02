@@ -11,7 +11,7 @@ namespace eLibraryManagement
 {
 
 
-    public partial class AdminPubisherManagement
+    public partial class adminAccommodationManagement
     {
 
         /// <summary>

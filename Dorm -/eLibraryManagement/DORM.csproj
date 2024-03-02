@@ -67,9 +67,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="adminAccommodationManagement.aspx" />
+    <Content Include="adminAccomodationIssue.aspx" />
+    <Content Include="adminPublisherManagement.aspx" />
     <Content Include="adminlogin.aspx" />
-    <Content Include="AdminPubisherManagement.aspx" />
+    <Content Include="adminAccommodationManagement.aspx" />
     <Content Include="bootstrap\css\bootstrap.min.css" />
     <Content Include="bootstrap\js\bootstrap.bundle.min.js" />
     <Content Include="css\customstylesheet.css" />
@@ -2149,6 +2150,8 @@
     <Content Include="fontawesome\svgs\solid\yin-yang.svg" />
     <Content Include="fontawesome\svgs\solid\z.svg" />
     <Content Include="home.aspx" />
+    <Content Include="images\accommodation Issue.jpg" />
+    <Content Include="images\Accommodation manage.jpg" />
     <Content Include="images\admin icon.png" />
     <Content Include="images\amazing-aerial-shot-singapore-cityscape-with-lots-skyscrapers.jpg" />
     <Content Include="images\banner.png" />
@@ -2164,12 +2167,19 @@
     <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="adminAccommodationManagement.aspx.cs">
-      <DependentUpon>adminAccommodationManagement.aspx</DependentUpon>
+    <Compile Include="adminAccomodationIssue.aspx.cs">
+      <DependentUpon>adminAccomodationIssue.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="adminAccommodationManagement.aspx.designer.cs">
-      <DependentUpon>adminAccommodationManagement.aspx</DependentUpon>
+    <Compile Include="adminAccomodationIssue.aspx.designer.cs">
+      <DependentUpon>adminAccomodationIssue.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="adminPublisherManagement.aspx.cs">
+      <DependentUpon>adminPublisherManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adminPublisherManagement.aspx.designer.cs">
+      <DependentUpon>adminPublisherManagement.aspx</DependentUpon>
     </Compile>
     <Compile Include="adminlogin.aspx.cs">
       <DependentUpon>adminlogin.aspx</DependentUpon>
@@ -2178,12 +2188,12 @@
     <Compile Include="adminlogin.aspx.designer.cs">
       <DependentUpon>adminlogin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AdminPubisherManagement.aspx.cs">
-      <DependentUpon>AdminPubisherManagement.aspx</DependentUpon>
+    <Compile Include="adminAccommodationManagement.aspx.cs">
+      <DependentUpon>adminAccommodationManagement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AdminPubisherManagement.aspx.designer.cs">
-      <DependentUpon>AdminPubisherManagement.aspx</DependentUpon>
+    <Compile Include="adminAccommodationManagement.aspx.designer.cs">
+      <DependentUpon>adminAccommodationManagement.aspx</DependentUpon>
     </Compile>
     <Compile Include="home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>
