@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="adminAccomodationIssue.aspx.cs" Inherits="eLibraryManagement.adminAccomodationIssue" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
  
- <style>   
+<style>   
      
     /* Custom CSS */
 .my-custom-margin {
@@ -42,7 +42,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-       <div class="container-fluid">
+  <div class="container-fluid">
     <div class="row">
         <div class="col-md-6 ">
             <div class="card">
