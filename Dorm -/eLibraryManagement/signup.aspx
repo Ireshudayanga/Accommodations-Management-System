@@ -160,7 +160,7 @@
                     </div>
                     <div class="form-group  my-custom-margin">
                         <center>
-                        <asp:Button class="button" ID="Button1" runat="server" Text="Sign Up" />
+                        <asp:Button class="button" ID="Button1" runat="server" Text="Sign Up" OnClick="Button1_Click" />
                         </center>
                     </div>
                     <br />
