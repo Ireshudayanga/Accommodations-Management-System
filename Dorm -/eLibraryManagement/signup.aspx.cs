@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -20,6 +21,56 @@ namespace eLibraryManagement
 
         //signup button click event
         protected void Button1_Click(object sender, EventArgs e)
+        {
+            if (checkMemberExist()) 
+            {
+                Response.Write("<script>alert('This user Id taken');</scrpit>");
+            }
+            else
+            {
+                signupNewMember();
+            }
+            
+        }
+
+
+        //user Difine method
+        bool checkMemberExist() 
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(strcon);
+                if (con.State == System.Data.ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
+                SqlCommand cmd = new SqlCommand("SELECT * FROM member_signup WHERE username = '"+TextBox9.Text.Trim()+"';", con);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+
+                if (dataTable.Rows.Count >=1)
+                {
+                    return true;
+                }
+                else 
+                {
+                    return false;
+                }
+            }
+
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + ex.Message + "');</script>");
+                return false;
+
+            }
+
+        }
+
+        void signupNewMember()
         {
             //Response.Write("<script>alert('Do you want Submit?');</scrpit>");
             try
@@ -49,12 +100,13 @@ namespace eLibraryManagement
                 cmd.ExecuteNonQuery();
                 con.Close();
 
-                Response.Write("<script>alert('Signup Successful');</scrpit>");
-             }
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Signup Successful');window.location ='home.aspx';", true);
+            }
 
             catch (Exception ex)
             {
-                Response.Write("<script>aleart('" + ex.Message + "');</script>");
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('" + ex.Message + "');", true);
+
             }
         }
     }
