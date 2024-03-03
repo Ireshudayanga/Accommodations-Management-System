@@ -44,13 +44,29 @@
                        <a class="nav-link" href="home.aspx">Home <span class="sr-only">(current)</span></a>
                      </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="#">About Us</a>
                   </li>
                    <li class="nav-item">
-                     <a class="nav-link" href="#">Link</a>
+                     <a class="nav-link" href="#">Terms And Condition</a>
                    </li>   
                   </ul>
                </div>
+                 <ul class="nav navbar-nav navbar-right">
+                <!-- Sign Up button -->
+                <li class="nav-item active">
+                    <asp:LinkButton CssClass="nav-link" ID="LinkButton1" 
+                        runat="server" OnClick="LinkButton1_Click">Sign Up</asp:LinkButton>
+                </li>
+                <!-- Login button -->
+                <li class="nav-item active">
+                    <asp:LinkButton CssClass="nav-link" ID="LinkButton2" 
+                        runat="server" OnClick="LinkButton2_Click">Login</asp:LinkButton>
+                </li>
+                <li class="nav-item active">
+                    <asp:LinkButton CssClass="nav-link" ID="LinkButton3" 
+                        runat="server" OnClick="LinkButton3_Click" Visible="False">Logout</asp:LinkButton>
+                </li>
+               </ul>
              </nav>
         </div>
 
@@ -72,17 +88,17 @@
                     <div class="col-xl-12 col-sm-12 col-md-12 text-center" >
                         <p>
                             <asp:LinkButton Class ="footerlinks" ID="LinkButton6"
-                            runat="server">Admin Login</asp:LinkButton> &nbsp
+                            runat="server" OnClick="LinkButton6_Click">Admin Login</asp:LinkButton> &nbsp
                             <asp:LinkButton Class ="footerlinks" ID="LinkButton11"
-                            runat="server">Author Management</asp:LinkButton> &nbsp
+                            runat="server" OnClick="LinkButton11_Click" Visible="False">Accommodation Management</asp:LinkButton> &nbsp
                             <asp:LinkButton Class ="footerlinks" ID="LinkButton12"
-                            runat="server">Publisher Management</asp:LinkButton> &nbsp
+                            runat="server" OnClick="LinkButton12_Click" Visible="False">Publisher Management</asp:LinkButton> &nbsp
                             <asp:LinkButton Class ="footerlinks" ID="LinkButton8"
-                            runat="server">Book Inventory</asp:LinkButton> &nbsp
+                            runat="server" OnClick="LinkButton8_Click" Visible="False">Accomodation Inventory</asp:LinkButton> &nbsp
                             <asp:LinkButton Class ="footerlinks" ID="LinkButton9"
-                            runat="server">Book issuing</asp:LinkButton> &nbsp
+                            runat="server" OnClick="LinkButton9_Click" Visible="False">Accommodation issuing</asp:LinkButton> &nbsp
                             <asp:LinkButton Class ="footerlinks" ID="LinkButton10"
-                            runat="server">Member Management</asp:LinkButton> &nbsp
+                            runat="server" OnClick="LinkButton10_Click" Visible="False">Member Management</asp:LinkButton> &nbsp
                         </p>
                     </div>
                 </div>
