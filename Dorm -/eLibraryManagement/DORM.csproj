@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="adminAccomodationInventory.aspx" />
     <Content Include="adminAccomodationIssue.aspx" />
     <Content Include="adminPublisherManagement.aspx" />
     <Content Include="adminlogin.aspx" />
@@ -2158,6 +2159,7 @@
     <Content Include="images\Capture.PNG" />
     <Content Include="images\Home icon.png" />
     <Content Include="images\home_1946436.png" />
+    <Content Include="images\inventory.jpg" />
     <Content Include="images\Publisher Management.jpg" />
     <Content Include="images\user Icon.png" />
     <Content Include="adminMemberManagement.aspx" />
@@ -2168,6 +2170,13 @@
     <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="adminAccomodationInventory.aspx.cs">
+      <DependentUpon>adminAccomodationInventory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adminAccomodationInventory.aspx.designer.cs">
+      <DependentUpon>adminAccomodationInventory.aspx</DependentUpon>
+    </Compile>
     <Compile Include="adminAccomodationIssue.aspx.cs">
       <DependentUpon>adminAccomodationIssue.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
