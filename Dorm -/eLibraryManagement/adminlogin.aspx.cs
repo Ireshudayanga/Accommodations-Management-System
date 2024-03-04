@@ -36,8 +36,11 @@ namespace eLibraryManagement
                 {
                     while (dr.Read())
                     {
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('" + dr.GetValue(2).ToString() + "')", true);
+                        Session["username"] = dr.GetValue(0).ToString();
+                        Session["full_name"] = dr.GetValue(2).ToString();
+                        Session["role"] = "admin";
                     }
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Login Successful');window.location ='home.aspx';", true);
                 }
                 else
                 {

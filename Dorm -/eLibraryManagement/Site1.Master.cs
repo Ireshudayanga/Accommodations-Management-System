@@ -11,6 +11,54 @@ namespace eLibraryManagement
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            try 
+            {
+                if (Session["role"]==null)
+                {
+                    LinkButton2.Visible = true; //Login
+                    LinkButton1.Visible = true; //Signup
+                    LinkButton3.Visible = false; //Logout
+
+                    LinkButton6.Visible = true; //admin login
+                    LinkButton11.Visible = false; 
+                    LinkButton12.Visible = false;
+                    LinkButton8.Visible = false;
+                    LinkButton9.Visible = false;
+                    LinkButton10.Visible = false;
+
+                }
+                else if(Session["role"].Equals("user"))
+                {
+                    LinkButton2.Visible = false; //Login
+                    LinkButton1.Visible = false; //Signup
+                    LinkButton3.Visible = true; //Logout
+
+                    LinkButton6.Visible = false; //admin login
+                    LinkButton11.Visible = false;
+                    LinkButton12.Visible = false;
+                    LinkButton8.Visible = false;
+                    LinkButton9.Visible = false;
+                    LinkButton10.Visible = false;
+                }
+                else if (Session["role"].Equals("admin"))
+                {
+                    LinkButton2.Visible = false; //Login
+                    LinkButton1.Visible = false; //Signup
+                    LinkButton3.Visible = true; //Logout
+
+                    LinkButton6.Visible = false; //admin login
+                    LinkButton11.Visible = true;
+                    LinkButton12.Visible = true;
+                    LinkButton8.Visible = true;
+                    LinkButton9.Visible = true;
+                    LinkButton10.Visible = true;
+                }
+            }
+            catch (Exception ex)
+            { 
+           
+            
+            }
 
         }
 
@@ -56,7 +104,21 @@ namespace eLibraryManagement
 
         protected void LinkButton3_Click(object sender, EventArgs e)
         {
-            Response.Redirect("#");
+            Session["username"] = "";
+            Session["full_name"] = "";
+            Session["role"] = "";
+            Session["status"] = "";
+
+            LinkButton2.Visible = true; //Login
+            LinkButton1.Visible = true; //Signup
+            LinkButton3.Visible = false; //Logout
+
+            LinkButton6.Visible = true; //admin login
+            LinkButton11.Visible = false;
+            LinkButton12.Visible = false;
+            LinkButton8.Visible = false;
+            LinkButton9.Visible = false;
+            LinkButton10.Visible = false;
         }
     }
 }
