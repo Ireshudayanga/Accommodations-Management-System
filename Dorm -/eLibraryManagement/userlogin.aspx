@@ -80,7 +80,7 @@
                                 </div>
                                 <div class="form-group">
                                     <center>
-                                    <asp:Button class="button" ID="Button1" runat="server" Text="Login" />
+                                    <asp:Button class="button" ID="Button1" runat="server" Text="Login" OnClick="Button1_Click" />
                                     </center>
                                 </div>
                                 <div class="form-group">
