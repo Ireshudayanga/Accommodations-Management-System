@@ -44,7 +44,7 @@ namespace eLibraryManagement
                 }
                 else
                 {
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Resident doesn't Exsist');", true);
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Invalid Resident ID');", true);
                 }
             }
 
