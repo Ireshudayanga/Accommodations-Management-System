@@ -72,28 +72,28 @@
                                 <div class="input-group">
                                 <asp:TextBox CssClass="form-control" ID="TextBox1"
                                  runat="server" placeholder="Id"></asp:TextBox>
-                                <asp:Button class="btn  btn-block btn-primary" ID="Button1" runat="server" Text="Search" />
+                                <asp:Button class="btn  btn-block btn-primary" ID="Button1" runat="server" Text="Search" OnClick="Button1_Click" />
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-8">
-                            <label>Owner Name</label>
+                            <label>Resident Name</label>
                             <div class="form-group">
                                 <asp:TextBox CssClass="form-control" ID="TextBox3"
-                                runat="server" placeholder="Owner" ></asp:TextBox>
+                                runat="server" placeholder="" ></asp:TextBox>
                             </div>
                         </div>
                     </div>
 
                     <div class="row my-custom-margin">
                         <div class="col-md-4 ">
-                            <asp:Button class="btn btn-lg btn-block btn-success my-custom-button" ID="Button2" runat="server" Text="Add" />
+                            <asp:Button class="btn btn-lg btn-block btn-success my-custom-button" ID="Button2" runat="server" Text="Add" OnClick="Button2_Click" />
                         </div>
                         <div class="col-md-4">
-                            <asp:Button class="btn btn-lg btn-block btn-primary my-custom-button" ID="Button3" runat="server" Text="Update" />
+                            <asp:Button class="btn btn-lg btn-block btn-primary my-custom-button" ID="Button3" runat="server" Text="Update" OnClick="Button3_Click" />
                         </div>
                         <div class="col-md-4">
-                            <asp:Button class="btn btn-lg btn-block btn-danger my-custom-button" ID="Button4" runat="server" Text="Delete" />
+                            <asp:Button class="btn btn-lg btn-block btn-danger my-custom-button" ID="Button4" runat="server" Text="Delete" OnClick="Button4_Click" />
                         </div>
                     </div>
 

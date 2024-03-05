@@ -119,6 +119,8 @@ namespace eLibraryManagement
             LinkButton8.Visible = false;
             LinkButton9.Visible = false;
             LinkButton10.Visible = false;
+
+            Response.Redirect("home.aspx");
         }
     }
 }
