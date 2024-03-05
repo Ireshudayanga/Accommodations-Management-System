@@ -16,6 +16,8 @@
     <link href="css/customstylesheet.css" rel="stylesheet" />
     <%-- jquery --%>
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+     <%-- dataTable js --%>
+    <script src="datatables/js/dataTables.min.js"></script>
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>

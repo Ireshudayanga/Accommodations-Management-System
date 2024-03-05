@@ -17,7 +17,7 @@ namespace eLibraryManagement
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            GridView1.DataBind();
         }
 
         //Add botton event
@@ -30,7 +30,12 @@ namespace eLibraryManagement
             else 
             {
                 addnewresident();
+                clearForm();
+
+                GridView1.DataBind();
             }
+
+           
         }
 
         //Update botton event
@@ -41,6 +46,9 @@ namespace eLibraryManagement
                 if (checkifaccommodationexist())
                 {
                     updateresident();
+                    clearForm();
+
+                    GridView1.DataBind();
                 }
                 else
                 {
@@ -54,13 +62,35 @@ namespace eLibraryManagement
 
             }
 
+            clearForm();
 
         }
 
         //Delete botton event
         protected void Button4_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (checkifaccommodationexist())
+                {
+                    deleteresident();
+                    clearForm();
 
+                    GridView1.DataBind();
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Invalid Resident ID');", true);
+                }
+            }
+
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('" + ex.Message + "');", true);
+
+            }
+
+         
         }
 
         //Search botton event
@@ -164,6 +194,39 @@ namespace eLibraryManagement
                 Response.Write("<script>alert('" + ex.Message + "');</script>");
                 return false;
             }
+        }
+
+        void deleteresident() 
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(strcon);
+                if (con.State == System.Data.ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
+                SqlCommand cmd = new SqlCommand("DELETE FROM accommodation_resident_tbl WHERE accommodation_id ='" + TextBox1.Text.Trim() + "'", con);
+
+                //Execute the querry 
+
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Resident Delete Successful');", true);
+            }
+
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('" + ex.Message + "');", true);
+
+            }
+        }
+
+        void clearForm() 
+        {
+            TextBox1.Text = string.Empty;
+            TextBox3.Text = string.Empty;
         }
     }
 }
