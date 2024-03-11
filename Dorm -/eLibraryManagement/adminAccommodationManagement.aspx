@@ -1,10 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="adminAccommodationManagement.aspx.cs" Inherits="eLibraryManagement.AdminPubisherManagement" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-
+    
     <script type="text/javascript">
-       //data table js need to be added
+        $(document).ready(function () {
+
+            $("#GridView1").prepend($("<thead></thead>").append($(this).find("tr:first"))).dataTable();
+
+        });
     </script>
-          
+
         <style>    
     /* Custom CSS */
 .my-custom-margin {
@@ -35,6 +39,13 @@
      background-color:#2f692f;
  }
     </style>
+    <script>
+        $(document).ready(function () {
+            $(".table").prepend($("<thead></thead>").append($(this).find("tr:first"))).dataTable();
+            //$('.table').DataTable();
+        });
+    </script>
+    
 </asp:Content>
 
 
@@ -139,7 +150,7 @@
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dormDBConnectionString %>" ProviderName="<%$ ConnectionStrings:dormDBConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [accommodation_resident_tbl]"></asp:SqlDataSource>
                 <asp:RadioButton ID="RadioButton1" runat="server" />
                 <div class ="col">
-                    <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="accommodation_id" DataSourceID="SqlDataSource1">
+                    <asp:GridView  class="table table-striped table-bordered" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="accommodation_id" DataSourceID="SqlDataSource1">
                         <Columns>
                             <asp:BoundField DataField="accommodation_id" HeaderText="accommodation_id" ReadOnly="True" SortExpression="accommodation_id" />
                             <asp:BoundField DataField="resident_name" HeaderText="resident_name" SortExpression="resident_name" />
@@ -157,5 +168,7 @@
 
     </div>
 </div>
+
+     
 
 </asp:Content>

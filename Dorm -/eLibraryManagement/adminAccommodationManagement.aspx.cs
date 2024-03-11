@@ -96,10 +96,45 @@ namespace eLibraryManagement
         //Search botton event
         protected void Button1_Click(object sender, EventArgs e)
         {
-
+            searchById();
         }
 
         //user define function
+
+
+        void searchById() 
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(strcon);
+
+                if (conn.State == System.Data.ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+
+                SqlCommand cmd = new SqlCommand(
+                "SELECT * FROM accommodation_resident_tbl WHERE accommodation_id = '" + TextBox1.Text.Trim() + "'", conn);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+
+                if (dataTable.Rows.Count >= 1)
+                {
+                   TextBox3.Text = dataTable.Rows[0][1].ToString();
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Invalid Author Id');", true);
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + ex.Message + "');</script>");
+                
+            }
+        }
 
         void updateresident()
         {
