@@ -114,7 +114,7 @@
                                 <div class="input-group">
                                 <asp:TextBox CssClass="form-control" ID="TextBox1"
                                  runat="server" placeholder="Id"></asp:TextBox>
-                                <asp:Button class="btn  btn-block btn-primary" ID="Button1" runat="server" Text="Search" />
+                                <asp:Button class="btn  btn-block btn-primary" ID="Button1" runat="server" Text="Search" OnClick="Button1_Click1" />
                                 </div>
                             </div>
                         </div>
@@ -133,13 +133,13 @@
                                     runat="server" placeholder="Status" ReadOnly="True"></asp:TextBox>
 
                                     <asp:LinkButton class="btn  btn-block btn-success my-custom-button-status my-custom-btncolor mr-1" 
-                                        ID="LinkButton1" runat="server"><i class="fas fa-check-circle "></i></asp:LinkButton>
+                                        ID="LinkButton1" runat="server" OnClick="LinkButton1_Click"><i class="fas fa-check-circle "></i></asp:LinkButton>
 
                                     <asp:LinkButton class="btn  btn-block btn-success my-custom-button-status my-custom-btncolorwerning mr-1" 
-                                        ID="LinkButton2" runat="server"><i class="far fa-pause-circle"></i></asp:LinkButton>
+                                        ID="LinkButton2" runat="server" OnClick="LinkButton2_Click"><i class="far fa-pause-circle"></i></asp:LinkButton>
 
                                     <asp:LinkButton class="btn  btn-block btn-success my-custom-button-status my-custom-btncolordeactive mr-1" 
-                                        ID="LinkButton3" runat="server"><i class="fas fa-times-circle"></i></asp:LinkButton>
+                                        ID="LinkButton3" runat="server" OnClick="LinkButton3_Click"><i class="fas fa-times-circle"></i></asp:LinkButton>
                                  </div>
                             </div>
                         </div>
@@ -211,7 +211,7 @@
                     <div class="row my-custom-margin">
                         <div class="col-md-8">
                             <center>
-                            <asp:Button class="btn btn-lg btn-block btn-danger my-custom-buttonpermentdelet" ID="Button4" runat="server" Text="Permanently Delete User " />
+                            <asp:Button class="btn btn-lg btn-block btn-danger my-custom-buttonpermentdelet" ID="Button4" runat="server" Text="Permanently Delete User " OnClick="Button4_Click" />
                             </center>
                         </div>
                     </div>
@@ -250,9 +250,15 @@
             </div>
 
             <div class="row">
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dormDBConnectionString3 %>" ProviderName="<%$ ConnectionStrings:dormDBConnectionString3.ProviderName %>" SelectCommand="SELECT * FROM [member_signup]"></asp:SqlDataSource>
                 <div class ="col">
-                    <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server">
-
+                    <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="username" DataSourceID="SqlDataSource1">
+                        <Columns>
+                            <asp:BoundField DataField="full_name" HeaderText="Name" SortExpression="full_name" />
+                            <asp:BoundField DataField="contact" HeaderText="Contact" SortExpression="contact" />
+                            <asp:BoundField DataField="email" HeaderText="Email" SortExpression="email" />
+                            <asp:BoundField DataField="account_status" HeaderText="Status" SortExpression="account_status" />
+                        </Columns>
                     </asp:GridView>
                 </div>
             </div>
