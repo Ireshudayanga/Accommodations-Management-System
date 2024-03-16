@@ -18,9 +18,10 @@ namespace eLibraryManagement
         protected void Page_Load(object sender, EventArgs e)
         {
             GridView1.DataBind();
+            GridView2.DataBind();
         }
 
-        //Add botton event
+        // User Add botton event
         protected void Button2_Click(object sender, EventArgs e)
         {
             if(checkifaccommodationexist())
@@ -38,7 +39,7 @@ namespace eLibraryManagement
            
         }
 
-        //Update botton event
+        // User Update botton event
         protected void Button3_Click(object sender, EventArgs e)
         {
             try
@@ -66,7 +67,7 @@ namespace eLibraryManagement
 
         }
 
-        //Delete botton event
+        // User Delete botton event
         protected void Button4_Click(object sender, EventArgs e)
         {
             try
@@ -93,11 +94,102 @@ namespace eLibraryManagement
          
         }
 
-        //Search botton event
+        // User Search botton event
         protected void Button1_Click(object sender, EventArgs e)
         {
             searchById();
         }
+
+
+
+        // LandLoad Search botton event
+        protected void Button5_Click(object sender, EventArgs e)
+        {
+            searchByIdLAndload();
+        }
+
+        // LandLoad Add botton event
+        protected void Button6_Click(object sender, EventArgs e)
+        {
+            if (checkifLandLoadExist())
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Landloard ID Already Exsist')", true);
+            }
+            else
+            {
+                addnewLandLoard();
+                clearForm();
+
+                GridView2.DataBind();
+            }
+        }
+
+        // LandLoad Update botton event
+        protected void Button7_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (checkifLandLoadExist())
+                {
+                    updateLandload();
+                    clearForm();
+
+                    GridView2.DataBind();
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Invalid Landload ID');", true);
+                }
+            }
+
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('" + ex.Message + "');", true);
+
+            }
+
+            clearForm();
+        }
+
+        // LandLoad Delete botton event
+        protected void Button8_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (checkifLandLoadExist())
+                {
+                    deleteLandload();
+                    clearForm();
+
+                    GridView2.DataBind();
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Invalid Resident ID');", true);
+                }
+            }
+
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('" + ex.Message + "');", true);
+
+            }
+        }
+
+
+
+        /// <summary>
+        /// //////////////////////////////////////////////////////////////////////////////////////////
+        /// </summary>
+
+
+
+
+
+
+
+
+
 
         //user define function
 
@@ -262,6 +354,167 @@ namespace eLibraryManagement
         {
             TextBox1.Text = string.Empty;
             TextBox3.Text = string.Empty;
+
+            TextBox2.Text = string.Empty;
+            TextBox4.Text = string.Empty;
+        }
+
+        ////////////////////////////////////////////////////////////////////////////////////////
+
+        bool checkifLandLoadExist()
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(strcon);
+
+                if (conn.State == System.Data.ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+
+                SqlCommand cmd = new SqlCommand(
+                "SELECT * FROM landload_tbl WHERE landload_id = '" + TextBox2.Text.Trim() + "'", conn);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+
+                if (dataTable.Rows.Count >= 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + ex.Message + "');</script>");
+                return false;
+            }
+        }
+
+        void addnewLandLoard()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(strcon);
+                if (con.State == System.Data.ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
+                SqlCommand cmd = new SqlCommand("INSERT INTO landload_tbl(landload_id,landload_name) VALUES(@landload_id,@landload_name)", con);
+
+                cmd.Parameters.AddWithValue("@landload_id", TextBox2.Text.Trim());
+                cmd.Parameters.AddWithValue("@landload_name", TextBox4.Text.Trim());
+
+
+                //Execute the querry 
+
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Landload Added Successful');", true);
+            }
+
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('" + ex.Message + "');", true);
+
+            }
+        }
+
+        void updateLandload()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(strcon);
+                if (con.State == System.Data.ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
+                SqlCommand cmd = new SqlCommand("UPDATE landload_tbl SET landload_name=@landload_name WHERE landload_id='" + TextBox2.Text.Trim() + "'", con);
+
+                cmd.Parameters.AddWithValue("@landload_name", TextBox4.Text.Trim());
+
+
+                //Execute the querry 
+
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Landload Update Successful');", true);
+            }
+
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('" + ex.Message + "');", true);
+
+            }
+        }
+
+        void deleteLandload()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(strcon);
+                if (con.State == System.Data.ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
+                SqlCommand cmd = new SqlCommand("DELETE FROM landload_tbl WHERE landload_id ='" + TextBox2.Text.Trim() + "'", con);
+
+                //Execute the querry 
+
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Landloard Delete Successful');", true);
+            }
+
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('" + ex.Message + "');", true);
+
+            }
+        }
+
+        void searchByIdLAndload()
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(strcon);
+
+                if (conn.State == System.Data.ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+
+                SqlCommand cmd = new SqlCommand(
+                "SELECT * FROM landload_tbl WHERE landload_id = '" + TextBox2.Text.Trim() + "'", conn);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+
+                if (dataTable.Rows.Count >= 1)
+                {
+                    TextBox4.Text = dataTable.Rows[0][1].ToString();
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Invalid Landload Id');", true);
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + ex.Message + "');</script>");
+
+            }
         }
     }
 }

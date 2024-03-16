@@ -49,9 +49,9 @@ namespace eLibraryManagement
                     LinkButton6.Visible = false; //admin login
                     LinkButton11.Visible = true;
                     LinkButton12.Visible = true;
-                    LinkButton8.Visible = true;
-                    LinkButton9.Visible = true;
-                    LinkButton10.Visible = true;
+                    LinkButton8.Visible = false;
+                    LinkButton9.Visible = false;
+                    LinkButton10.Visible = false;
                 }
             }
             catch (Exception ex)
