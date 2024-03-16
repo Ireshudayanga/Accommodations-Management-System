@@ -1,6 +1,29 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="adminAccomodationInventory.aspx.cs" Inherits="eLibraryManagement.adminAccomodationInventory" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
+    <!--
+<script type ="text/javascript">
+
+    function readURL(input) {
+
+        if (input.files && input.files[0])
+        {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#imgview').attr('src', e.target.result);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+
+    }
+
+</script>
+
+    -->
+
+
 <style>   
      
     /* Custom CSS */
@@ -95,7 +118,7 @@
                     <div class="row">
                         <div class="col">
                             <center>
-                                <img src="images/inventory.jpg" width="100px"/>
+                                <img src="images/inventory.jpg" width ="300px"/>
                             </center>
                         </div>
                     </div>
@@ -109,7 +132,7 @@
 
                     <div class="row my-custom-margin">
                         <div class="col">
-                            <asp:FileUpload CssClass="form-control" ID="FileUpload1" runat="server" />
+                            <asp:FileUpload onchange="readURL(this);" CssClass="form-control" ID="FileUpload1" runat="server" />
                         </div>
                     </div>
 
@@ -125,10 +148,10 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <label>Owner Name</label>
+                            <label>Owner Name</label> 
                             <div class="form-group">
                                 <asp:TextBox CssClass="form-control" ID="TextBox3"
-                                runat="server" placeholder="Name" ReadOnly="True"></asp:TextBox>
+                                runat="server" placeholder="Name" ></asp:TextBox>
                             </div>
                         </div>
                     </div>
@@ -161,7 +184,7 @@
                              <label>Contact Number</label>
                             <div class="form-group">
                                  <asp:TextBox CssClass="form-control" ID="TextBox4"
-                                 runat="server" placeholder="" ReadOnly="True" ></asp:TextBox>
+                                 runat="server" placeholder="" ></asp:TextBox>
                              </div>
                          </div>              
                      </div>    
@@ -171,21 +194,21 @@
                         <label>State</label>
                         <div class="form-group">
                              <asp:TextBox CssClass="form-control" ID="TextBox9"
-                             runat="server" placeholder="" ReadOnly="True"></asp:TextBox>
+                             runat="server" placeholder="" ></asp:TextBox>
                         </div>
                      </div>
                      <div class="col-md-4">
                             <label>City</label>
                         <div class="form-group">
                              <asp:TextBox CssClass="form-control" ID="TextBox10"
-                             runat="server" placeholder="" ReadOnly="True" ></asp:TextBox>
+                             runat="server" placeholder=""  ></asp:TextBox>
                             </div>
                      </div>
                         <div class="col-md-4">
                             <label>Postal Code</label>
                      <div class="form-group">
                              <asp:TextBox CssClass="form-control" ID="TextBox11"
-                             runat="server" placeholder="" ReadOnly="True" ></asp:TextBox>
+                             runat="server" placeholder=""  ></asp:TextBox>
                          </div>
                      </div>                       
                     </div>  
@@ -195,7 +218,7 @@
                             <label>Full Address:</label>
                             <div class="form-group">
                              <asp:TextBox CssClass="form-control" ID="TextBox12"
-                                runat="server" placeholder="" TextMode="MultiLine" ReadOnly="True"></asp:TextBox>
+                                runat="server" placeholder="" TextMode="MultiLine" ></asp:TextBox>
                             </div>
                         </div>
                    </div>
@@ -206,13 +229,13 @@
 
                    <div class="row my-custom-margin">
                         <div class="col-md-4 ">
-                            <asp:Button class="btn btn-lg btn-block btn-success my-custom-button" ID="Button2" runat="server" Text="Add" />
+                            <asp:Button class="btn btn-lg btn-block btn-success my-custom-button" ID="Button2" runat="server" Text="Add" OnClick="Button2_Click" />
                         </div>
                         <div class="col-md-4">
-                            <asp:Button class="btn btn-lg btn-block btn-primary my-custom-button" ID="Button3" runat="server" Text="Update" />
+                            <asp:Button class="btn btn-lg btn-block btn-primary my-custom-button" ID="Button3" runat="server" Text="Update" OnClick="Button3_Click" />
                         </div>
                        <div class="col-md-4">
-                         <asp:Button class="btn btn-lg btn-block btn-danger my-custom-button" ID="Button4" runat="server" Text="Delete" />
+                         <asp:Button class="btn btn-lg btn-block btn-danger my-custom-button" ID="Button4" runat="server" Text="Delete" OnClick="Button4_Click" />
                        </div>
                     </div>
 
@@ -249,20 +272,28 @@
                  </div>
             </div>
 
-            <div class="row">
+                 <div class="row">
                 <div class ="col">
-                    <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server">
-
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dormDBConnectionString4 %>" ProviderName="<%$ ConnectionStrings:dormDBConnectionString4.ProviderName %>" SelectCommand="SELECT * FROM [img_upload]"></asp:SqlDataSource>
+                    <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
+                     <Columns>
+                        <asp:BoundField DataField="img_name" HeaderText="img_name" SortExpression="img_name" />
+                        <asp:BoundField DataField="img_id" HeaderText="img_id" SortExpression="img_id" />
+                        <asp:BoundField DataField="img_link" HeaderText="img_link" SortExpression="img_link" />
+                    </Columns>
                     </asp:GridView>
-                </div>
-            </div>
-        </div>
+
+                     </div>
+                 </div>
+               </div>
     </div>
         <div class="homelink my-custom-margin">
             <a href="home.aspx" class="nounderline"><< Back to Home</a>
         </div>
     </div>
+     
 
+      
 
    </div>
 </div>
