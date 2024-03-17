@@ -30,6 +30,12 @@
             position: location,
             map: map
         });
+
+        var latitude = location.lat();
+        var longitude = location.lng();
+
+        document.getElementById('<%= Latitude.ClientID %>').value = latitude;
+        document.getElementById('<%= Longitude.ClientID %>').value = longitude;
     }
     </script>
 
@@ -109,12 +115,19 @@
                   </div>
 
                    <div class="row my-custom-margin">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                          <label>Images</label>
                         <div class="form-group">
                              <asp:FileUpload  CssClass="form-control" ID="FileUpload1" runat="server" />
                      </div>
                     </div>
+                         <div class="col-md-6">
+                            <label>Landloard Id</label>
+                            <div class="form-group">
+                                 <asp:TextBox CssClass="form-control" ID="TextBox1"
+                                runat="server" placeholder="" ></asp:TextBox>
+                            </div>
+                        </div>
                  </div>
 
 
@@ -166,9 +179,12 @@
                     </center>
                   </div>
 
+              <asp:HiddenField ID="Latitude" runat="server" />
+               <asp:HiddenField ID="Longitude" runat="server" />
+
                   <div class="form-group  my-custom-margin">
                       <center>
-                      <asp:Button class="button" ID="Button1" runat="server" Text="Submit"  />
+                      <asp:Button class="button" ID="Button1" runat="server" Text="Submit" OnClick="Button1_Click"  />
                       </center>
                   </div>
 
