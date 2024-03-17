@@ -19,6 +19,7 @@ namespace eLibraryManagement
         {
             GridView1.DataBind();
             GridView2.DataBind();
+            GridView3.DataBind();
         }
 
         // User Add botton event
@@ -177,6 +178,83 @@ namespace eLibraryManagement
         }
 
 
+        // Warden Search botton event
+        protected void Button9_Click(object sender, EventArgs e)
+        {
+            searchByIdWarden(); 
+        }
+
+        // Warden add botton event
+        protected void Button10_Click(object sender, EventArgs e)
+        {
+            {
+                if (checkifWardenExist())
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Warden ID Already Exsist')", true);
+                }
+                else
+                {
+                   addnewWarden();
+                    clearForm();
+
+                    GridView3.DataBind();
+                }
+            }
+        }
+
+        // Warden update botton event
+        protected void Button11_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (checkifWardenExist())
+                {
+                    updateWarden();
+                    clearForm();
+
+                    GridView3.DataBind();
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Invalid Warden ID');", true);
+                }
+            }
+
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('" + ex.Message + "');", true);
+
+            }
+
+            clearForm();
+        }
+
+        // Warden delete botton event
+        protected void Button12_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (checkifWardenExist())
+                {
+                    deleteWarden();
+                    clearForm();
+
+                    GridView3.DataBind();
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Invalid Warden ID');", true);
+                }
+            }
+
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('" + ex.Message + "');", true);
+
+            }
+        }
+       
+
 
         /// <summary>
         /// //////////////////////////////////////////////////////////////////////////////////////////
@@ -198,15 +276,15 @@ namespace eLibraryManagement
         {
             try
             {
-                SqlConnection conn = new SqlConnection(strcon);
+                SqlConnection con = new SqlConnection(strcon);
 
-                if (conn.State == System.Data.ConnectionState.Closed)
+                if (con.State == System.Data.ConnectionState.Closed)
                 {
-                    conn.Open();
+                    con.Open();
                 }
 
                 SqlCommand cmd = new SqlCommand(
-                "SELECT * FROM accommodation_resident_tbl WHERE accommodation_id = '" + TextBox1.Text.Trim() + "'", conn);
+                "SELECT * FROM accommodation_resident_tbl WHERE accommodation_id = '" + TextBox1.Text.Trim() + "'", con);
 
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 DataTable dataTable = new DataTable();
@@ -357,6 +435,9 @@ namespace eLibraryManagement
 
             TextBox2.Text = string.Empty;
             TextBox4.Text = string.Empty;
+
+            TextBox5.Text = string.Empty;
+            TextBox6.Text = string.Empty;
         }
 
         ////////////////////////////////////////////////////////////////////////////////////////
@@ -487,15 +568,15 @@ namespace eLibraryManagement
         {
             try
             {
-                SqlConnection conn = new SqlConnection(strcon);
+                SqlConnection con = new SqlConnection(strcon);
 
-                if (conn.State == System.Data.ConnectionState.Closed)
+                if (con.State == System.Data.ConnectionState.Closed)
                 {
-                    conn.Open();
+                    con.Open();
                 }
 
                 SqlCommand cmd = new SqlCommand(
-                "SELECT * FROM landload_tbl WHERE landload_id = '" + TextBox2.Text.Trim() + "'", conn);
+                "SELECT * FROM landload_tbl WHERE landload_id = '" + TextBox2.Text.Trim() + "'", con);
 
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 DataTable dataTable = new DataTable();
@@ -516,5 +597,165 @@ namespace eLibraryManagement
 
             }
         }
+
+        ////////////////////////////////////////////////////////////////////////////////////////
+
+        bool checkifWardenExist()
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(strcon);
+
+                if (conn.State == System.Data.ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+
+                SqlCommand cmd = new SqlCommand(
+                "SELECT * FROM warden_tbl WHERE warden_id = '" + TextBox5.Text.Trim() + "'", conn);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+
+                if (dataTable.Rows.Count >= 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + ex.Message + "');</script>");
+                return false;
+            }
+        }
+
+        void addnewWarden()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(strcon);
+                if (con.State == System.Data.ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
+                SqlCommand cmd = new SqlCommand("INSERT INTO warden_tbl(warden_id,warden_name) VALUES(@warden_id,@warden_name)", con);
+
+                cmd.Parameters.AddWithValue("@warden_id", TextBox5.Text.Trim());
+                cmd.Parameters.AddWithValue("@warden_name", TextBox6.Text.Trim());
+
+
+                //Execute the querry 
+
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Warden Added Successful');", true);
+            }
+
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('" + ex.Message + "');", true);
+
+            }
+        }
+
+        void updateWarden()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(strcon);
+                if (con.State == System.Data.ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
+                SqlCommand cmd = new SqlCommand("UPDATE warden_tbl SET warden_name=@warden_name WHERE warden_id='" + TextBox5.Text.Trim() + "'", con);
+
+                cmd.Parameters.AddWithValue("@warden_name", TextBox6.Text.Trim());
+
+
+                //Execute the querry 
+
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Warden Update Successful');", true);
+            }
+
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('" + ex.Message + "');", true);
+
+            }
+        }
+
+        void deleteWarden()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(strcon);
+                if (con.State == System.Data.ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
+                SqlCommand cmd = new SqlCommand("DELETE FROM warden_tbl WHERE warden_id ='" + TextBox5.Text.Trim() + "'", con);
+
+                //Execute the querry 
+
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Warden Delete Successful');", true);
+            }
+
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('" + ex.Message + "');", true);
+
+            }
+        }
+
+        void searchByIdWarden()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(strcon);
+
+                if (con.State == System.Data.ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
+                SqlCommand cmd = new SqlCommand(
+                "SELECT * FROM warden_tbl WHERE warden_id = '" + TextBox5.Text.Trim() + "'", con);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+
+                if (dataTable.Rows.Count >= 1)
+                {
+                    TextBox6.Text = dataTable.Rows[0][1].ToString();
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Invalid Warden Id');", true);
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + ex.Message + "');</script>");
+
+            }
+        }
+
+        
     }
 }

@@ -43,7 +43,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-6 mx-auto">
+            <div class="col-md-6 ">
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
@@ -98,6 +98,56 @@
                 <a href="home.aspx" class="nounderline"><< Back to Home</a>
                 </div>
             </div>
+
+            <div class="col-md-6 ">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col">
+                    <center>
+                        <img src="images/user%20Icon.png" width="110px"/>
+                    </center>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col">
+                    <center>
+                        <h3>Landloards Login</h3>
+                    </center>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <hr />
+                 </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label> Username</label>
+                    <div class="form-group">
+                        <asp:TextBox CssClass="form-control" ID="TextBox3"
+                         runat="server" placeholder=""></asp:TextBox>
+                    </div>
+                    <label>Password</label>
+                    <div class="form-group">
+                        <asp:TextBox CssClass="form-control" ID="TextBox4"
+                         runat="server" placeholder="" TextMode="Password"></asp:TextBox>
+                    </div>
+                    <div class="form-group">
+                        <center>
+                        <asp:Button class="button" ID="Button3" runat="server" Text="Login" OnClick="Button3_Click" />
+                        </center>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="homelink">
+    <a href="home.aspx" class="nounderline"><< Back to Home</a>
+    </div>
+</div>
         </div>
     </div>
 

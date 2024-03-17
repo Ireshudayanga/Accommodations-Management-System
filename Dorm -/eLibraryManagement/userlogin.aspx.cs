@@ -15,7 +15,46 @@ namespace eLibraryManagement
 
         protected void Page_Load(object sender, EventArgs e)
         {
+           
+        }
 
+        //Landloard Login
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(strcon);
+
+                if (conn.State == System.Data.ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+
+                SqlCommand cmd = new SqlCommand(
+                "SELECT * FROM landload_tbl WHERE landload_id = '" + TextBox3.Text.Trim() + "' AND password = '" + TextBox4.Text.Trim() + "'", conn);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+
+                        Session["username"] = dr.GetValue(0).ToString();
+                        Session["full_name"] = dr.GetValue(1).ToString();
+                        Session["role"] = "landloard";
+
+                    }
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Login Successful');window.location ='home.aspx';", true);
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Invalid username or password')", true);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -56,6 +95,8 @@ namespace eLibraryManagement
             } 
             
         }
+
+       
 
         // User Difined Function
     }

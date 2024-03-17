@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="adminAccommodationManagement.aspx.cs" Inherits="eLibraryManagement.AdminPubisherManagement" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    
+     
+ 
     <script type="text/javascript">
         $(document).ready(function () {
 
@@ -9,7 +10,15 @@
         });
     </script>
 
-        <style>    
+ <style>    
+
+       
+     /* Adjust map container size */
+     #map {
+         height: 100vh;
+         width: 100%;
+     }
+ 
     /* Custom CSS */
 .my-custom-margin {
     margin: 13px;
@@ -320,7 +329,7 @@
                                 <div class="input-group">
                                 <asp:TextBox CssClass="form-control" ID="TextBox5"
                                  runat="server" placeholder="Id"></asp:TextBox>
-                                <asp:Button class="btn  btn-block btn-primary" ID="Button9" runat="server" Text="Search" OnClick="Button1_Click" />
+                                <asp:Button class="btn  btn-block btn-primary" ID="Button9" runat="server" Text="Search" OnClick="Button9_Click" />
                                 </div>
                             </div>
                         </div>
@@ -335,13 +344,13 @@
 
                     <div class="row my-custom-margin">
                         <div class="col-md-4 ">
-                            <asp:Button class="btn btn-lg btn-block btn-success my-custom-button" ID="Button10" runat="server" Text="Add" OnClick="Button2_Click" />
+                            <asp:Button class="btn btn-lg btn-block btn-success my-custom-button" ID="Button10" runat="server" Text="Add" OnClick="Button10_Click" />
                         </div>
                         <div class="col-md-4">
-                            <asp:Button class="btn btn-lg btn-block btn-primary my-custom-button" ID="Button11" runat="server" Text="Update" OnClick="Button3_Click" />
+                            <asp:Button class="btn btn-lg btn-block btn-primary my-custom-button" ID="Button11" runat="server" Text="Update" OnClick="Button11_Click" />
                         </div>
                         <div class="col-md-4">
-                            <asp:Button class="btn btn-lg btn-block btn-danger my-custom-button" ID="Button12" runat="server" Text="Delete" OnClick="Button4_Click" />
+                            <asp:Button class="btn btn-lg btn-block btn-danger my-custom-button" ID="Button12" runat="server" Text="Delete" OnClick="Button12_Click" />
                         </div>
                     </div>
 
@@ -379,13 +388,13 @@
             </div>
 
             <div class="row">
-                <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:dormDBConnectionString %>" ProviderName="<%$ ConnectionStrings:dormDBConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [accommodation_resident_tbl]"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:dormDBConnectionStringWardenTBL %>" ProviderName="<%$ ConnectionStrings:dormDBConnectionStringWardenTBL.ProviderName %>" SelectCommand="SELECT * FROM [warden_tbl]"></asp:SqlDataSource>
                 <asp:RadioButton ID="RadioButton3" runat="server" />
                 <div class ="col">
-                    <asp:GridView  class="table table-striped table-bordered" ID="GridView3" runat="server" AutoGenerateColumns="False" DataKeyNames="accommodation_id" DataSourceID="SqlDataSource1">
+                    <asp:GridView  class="table table-striped table-bordered" ID="GridView3" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3">
                         <Columns>
-                            <asp:BoundField DataField="accommodation_id" HeaderText="accommodation_id" ReadOnly="True" SortExpression="accommodation_id" />
-                            <asp:BoundField DataField="resident_name" HeaderText="resident_name" SortExpression="resident_name" />
+                            <asp:BoundField DataField="warden_id" HeaderText="warden_id" SortExpression="warden_id" />
+                            <asp:BoundField DataField="warden_name" HeaderText="warden_name" SortExpression="warden_name" />
                         </Columns>
                     </asp:GridView>
                 </div>
