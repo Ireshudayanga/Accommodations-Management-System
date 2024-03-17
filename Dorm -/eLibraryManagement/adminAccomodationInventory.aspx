@@ -132,7 +132,7 @@
 
                     <div class="row my-custom-margin">
                         <div class="col">
-                            <asp:FileUpload onchange="readURL(this);" CssClass="form-control" ID="FileUpload1" runat="server" />
+                            <asp:FileUpload  CssClass="form-control" ID="FileUpload1" runat="server" />
                         </div>
                     </div>
 

@@ -2184,6 +2184,7 @@
     <Content Include="images\Publisher Management.jpg" />
     <Content Include="images\user Icon.png" />
     <Content Include="adminMemberManagement.aspx" />
+    <Content Include="landloadPublisher.aspx" />
     <Content Include="map.aspx" />
     <Content Include="signup.aspx" />
     <Content Include="userlogin.aspx" />
@@ -2240,6 +2241,13 @@
     </Compile>
     <Compile Include="adminMemberManagement.aspx.designer.cs">
       <DependentUpon>adminMemberManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="landloadPublisher.aspx.cs">
+      <DependentUpon>landloadPublisher.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="landloadPublisher.aspx.designer.cs">
+      <DependentUpon>landloadPublisher.aspx</DependentUpon>
     </Compile>
     <Compile Include="map.aspx.cs">
       <DependentUpon>map.aspx</DependentUpon>
