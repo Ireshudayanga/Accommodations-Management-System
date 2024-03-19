@@ -93,6 +93,7 @@
     <Content Include="adminPublisherManagement.aspx" />
     <Content Include="adminlogin.aspx" />
     <Content Include="adminAccommodationManagement.aspx" />
+    <Content Include="AdverticementPublish.aspx" />
     <Content Include="bootstrap\css\bootstrap.min.css" />
     <Content Include="bootstrap\js\bootstrap.bundle.min.js" />
     <Content Include="css\customstylesheet.css" />
@@ -2227,6 +2228,13 @@
     </Compile>
     <Compile Include="adminAccommodationManagement.aspx.designer.cs">
       <DependentUpon>adminAccommodationManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdverticementPublish.aspx.cs">
+      <DependentUpon>AdverticementPublish.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdverticementPublish.aspx.designer.cs">
+      <DependentUpon>AdverticementPublish.aspx</DependentUpon>
     </Compile>
     <Compile Include="home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>

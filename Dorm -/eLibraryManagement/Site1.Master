@@ -101,6 +101,8 @@
                             runat="server" OnClick="LinkButton9_Click" Visible="False">Accommodation issuing</asp:LinkButton> &nbsp
                             <asp:LinkButton Class ="footerlinks" ID="LinkButton10"
                             runat="server" OnClick="LinkButton10_Click" Visible="False">Member Management</asp:LinkButton> &nbsp
+                            <asp:LinkButton Class ="footerlinks" ID="LinkButton4"
+                            runat="server" OnClick="LinkButton4_Click" Visible="False">Accommodation Publish</asp:LinkButton> &nbsp
                         </p>
                     </div>
                 </div>

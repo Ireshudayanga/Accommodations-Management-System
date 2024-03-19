@@ -19,6 +19,7 @@ namespace eLibraryManagement
                     LinkButton1.Visible = true; //Signup
                     LinkButton3.Visible = false; //Logout
 
+                    LinkButton4.Visible = false;
                     LinkButton6.Visible = true; //admin login
                     LinkButton11.Visible = false; 
                     LinkButton12.Visible = false;
@@ -33,6 +34,7 @@ namespace eLibraryManagement
                     LinkButton1.Visible = false; //Signup
                     LinkButton3.Visible = true; //Logout
 
+                    LinkButton4.Visible = false;
                     LinkButton6.Visible = false; //admin login
                     LinkButton11.Visible = false;
                     LinkButton12.Visible = false;
@@ -46,9 +48,24 @@ namespace eLibraryManagement
                     LinkButton1.Visible = false; //Signup
                     LinkButton3.Visible = true; //Logout
 
+                    LinkButton4.Visible = false;
                     LinkButton6.Visible = false; //admin login
                     LinkButton11.Visible = true;
                     LinkButton12.Visible = true;
+                    LinkButton8.Visible = false;
+                    LinkButton9.Visible = false;
+                    LinkButton10.Visible = false;
+                }
+                else if (Session["role"].Equals("landloarsd"))
+                {
+                    LinkButton2.Visible = false; //Login
+                    LinkButton1.Visible = false; //Signup
+                    LinkButton3.Visible = true; //Logout
+
+                    LinkButton4.Visible = true;
+                    LinkButton6.Visible = false; //admin login
+                    LinkButton11.Visible = false;
+                    LinkButton12.Visible = false;
                     LinkButton8.Visible = false;
                     LinkButton9.Visible = false;
                     LinkButton10.Visible = false;
@@ -102,6 +119,11 @@ namespace eLibraryManagement
             Response.Redirect("userlogin.aspx");
         }
 
+        protected void LinkButton4_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("landloadPublisher.aspx");
+        }
+
         protected void LinkButton3_Click(object sender, EventArgs e)
         {
             Session["username"] = "";
@@ -113,6 +135,8 @@ namespace eLibraryManagement
             LinkButton1.Visible = true; //Signup
             LinkButton3.Visible = false; //Logout
 
+
+            LinkButton4.Visible = false;
             LinkButton6.Visible = true; //admin login
             LinkButton11.Visible = false;
             LinkButton12.Visible = false;
@@ -122,5 +146,7 @@ namespace eLibraryManagement
 
             Response.Redirect("home.aspx");
         }
+
+       
     }
 }

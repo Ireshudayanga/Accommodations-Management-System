@@ -192,10 +192,12 @@
 
 
               </div>
+
+           <div class="homelink my-custom-margin">
+            <a href="home.aspx" class="nounderline"><< Back to Home</a>
+           </div>
           </div>
-          <div class="homelink my-custom-margin">
-          <a href="home.aspx" class="nounderline"><< Back to Home</a>
-         </div>
+         
       
   </div>
 
