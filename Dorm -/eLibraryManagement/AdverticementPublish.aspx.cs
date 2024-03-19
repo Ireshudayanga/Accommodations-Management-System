@@ -14,6 +14,11 @@ namespace eLibraryManagement
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            Response.Cache.SetCacheability(System.Web.HttpCacheability.NoCache);
+            Response.Cache.SetNoStore();
+            Response.Cache.SetExpires(DateTime.UtcNow.AddHours(-1));
+
             if (!IsPostBack)
             {
                 GetLocationsFromDatabase();

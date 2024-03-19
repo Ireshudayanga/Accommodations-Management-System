@@ -38,7 +38,7 @@
 
         function addMarker(location) {
 
-            alert("Adding marker at location: " + JSON.stringify(location));
+            // alert("Adding marker at location: " + JSON.stringify(location)); to check location data parsing correctly
             var marker = new google.maps.Marker({
                 position: location,
                 map: map
