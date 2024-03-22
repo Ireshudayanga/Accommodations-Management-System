@@ -6,7 +6,12 @@
             width: 100%;
         }
     </style>
+
+
+
 </asp:Content>
+
+
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -16,15 +21,13 @@
 
     <script>
 
-    
 
 
-       
-    </script>
+</script>
 
     <script>
         var map;
-        var location = [];
+        var locations = [];
 
         function initMap() {
             console.log("initMap() function called.");
@@ -34,6 +37,7 @@
             });
 
             GetLocationsFromDatabase();
+      
         }
 
         function addMarker(location) {
@@ -53,8 +57,8 @@
         }
 
         function GetLocationsFromDatabase() {
-            
-           
+
+
             for (var i = 0; i < locations.length; i++) {
                 addMarker(locations[i]);
             }
