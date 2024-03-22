@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="TestPublish.aspx.cs" Inherits="eLibraryManagement.TestPublish" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="AccommodationList.aspx.cs" Inherits="eLibraryManagement.TestPublish" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
      <style>
@@ -85,10 +85,10 @@
         <div class="card">
             <div class="card-body my-custom-margin">
                 
-                <div class="row my-custom-margin">
+                <div class="row ">
                     <div class="col">
                         <center>
-                            <h3>Landloards Details</h3>
+                            <h3>Accommodation Details</h3>
                         </center>
                     </div>
                 </div>
@@ -99,21 +99,33 @@
                 </div>
                 </div>
 
-                 <div class="row my-custom-margin">
+            <div class="row  mx-auto">
+                <div class="col-md-12">
+                    <div class="form-group">
+                       
+                        <asp:Image ID="imgUploaded" Width="500px" runat="server" />
+    
+                 </div>
+             </div>
+            </div>
+              
+            <br />
 
-                      <div class="col-md-6">
+                 <div class="row  my-custom-margin">
+
+                      <div class="col-md-5  mx-auto">
                          <label>Landloard Id</label>
                             <div class="form-group">
                                 <asp:TextBox CssClass="form-control" ID="TextBox3"
-                             runat="server" placeholder="" ></asp:TextBox>
+                             runat="server" placeholder="" ReadOnly="True"></asp:TextBox>
                             </div>
                         </div>
                  
-                       <div class="col-md-6">
+                       <div class="col-md-5  mx-auto">
                          <label>Contact No:</label>
                         <div class="form-group">
                             <asp:TextBox CssClass="form-control" ID="TextBox2"
-                            runat="server" placeholder="" TextMode="Phone"></asp:TextBox>
+                            runat="server" placeholder=""  ReadOnly="True" TextMode="Phone"></asp:TextBox>
                     </div>
                   </div>
                </div>
@@ -121,29 +133,29 @@
 
                 <div class="row my-custom-margin">
                    
-                    <div class="col-md-6">
+                    <div class="col-md-5  mx-auto">
                         <label>Email</label>
                         <div class="form-group">
                             <asp:TextBox CssClass="form-control" ID="TextBox4"
-                            runat="server" placeholder="" TextMode="Email"></asp:TextBox>
+                            runat="server" placeholder=""  ReadOnly="True" TextMode="Email"></asp:TextBox>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-5  mx-auto">
                           <label>City</label>
                           <div class="form-group">
                            <asp:TextBox CssClass="form-control" ID="TextBox6"
-                              runat="server" placeholder="" ></asp:TextBox>
+                              runat="server" placeholder=""  ReadOnly="True" ></asp:TextBox>
                        </div>
                       </div>
                 </div>
 
 
                 <div class="row my-custom-margin">
-                    <div class="col-md-12">
+                    <div class="col-md-11  mx-auto">
                         <label>Full Address:</label>
                         <div class="form-group">
                          <asp:TextBox CssClass="form-control" ID="TextBox8"
-                            runat="server" placeholder="" TextMode="MultiLine"></asp:TextBox>
+                            runat="server" placeholder=""  ReadOnly="True" TextMode="MultiLine"></asp:TextBox>
                         </div>
                     </div>
                </div>
@@ -152,8 +164,9 @@
             <asp:HiddenField ID="ClickedMarkerLatitude" runat="server" />
             <asp:HiddenField ID="ClickedMarkerLongitude" runat="server" />
 
-
-              
+            <br />
+            <br /> 
+            
             </div>
 
          <div class="homelink my-custom-margin">
@@ -162,10 +175,8 @@
         </div>
        
     
+
+  </div>
 </div>
-
-
-
-    </div>
 
 </asp:Content>

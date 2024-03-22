@@ -124,6 +124,18 @@ namespace eLibraryManagement
             Response.Redirect("landloadPublisher.aspx");
         }
 
+        protected void LinkButton5_Click(object sender, EventArgs e)
+        {
+            if (Session["role"] == null)
+            {
+                Response.Redirect("Error.aspx");
+            }
+            else if (Session["role"].Equals("user"))
+            {
+                Response.Redirect("AccommodationList.aspx");
+            }
+        }
+
         protected void LinkButton3_Click(object sender, EventArgs e)
         {
             Session["username"] = "";
@@ -147,6 +159,6 @@ namespace eLibraryManagement
             Response.Redirect("home.aspx");
         }
 
-       
+        
     }
 }

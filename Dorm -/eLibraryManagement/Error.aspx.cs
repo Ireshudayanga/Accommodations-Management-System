@@ -7,11 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace eLibraryManagement
 {
-    public partial class map : System.Web.UI.Page
+    public partial class Error : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+
         }
     }
 }

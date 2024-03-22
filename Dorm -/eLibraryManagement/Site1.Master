@@ -54,6 +54,12 @@
                   </ul>
                </div>
                  <ul class="nav navbar-nav navbar-right">
+
+                <!-- Accommodations -->
+                <li class="nav-item active">
+                    <asp:LinkButton CssClass="nav-link" ID="LinkButton5" 
+                    runat="server" OnClick="LinkButton5_Click">Accommodations</asp:LinkButton>
+                </li>
                 <!-- Sign Up button -->
                 <li class="nav-item active">
                     <asp:LinkButton CssClass="nav-link" ID="LinkButton1" 

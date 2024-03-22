@@ -18,10 +18,13 @@ namespace eLibraryManagement
         protected void Page_Load(object sender, EventArgs e)
 
         {
+            
+
+
+
             if (!IsPostBack)
             {
                 GetLocationsFromDatabase();
-                showLandLoadData();
 
             }
 
@@ -32,15 +35,19 @@ namespace eLibraryManagement
                 {
                      GetLocationsFromDatabase();
 
-                      // Retrieve the latitude and longitude from the hidden fields
+                      
                     latitude = ClickedMarkerLatitude.Value;
                     longitude = ClickedMarkerLongitude.Value;
 
-                    Response.Write($"Latitude: {latitude}, Longitude: {longitude}");
 
                      showLandLoadData();
 
+                    string imageLink = RetrieveImageLinkFromDatabase();
 
+                        if (!string.IsNullOrEmpty(imageLink))
+                        {
+                             imgUploaded.ImageUrl = imageLink;
+                        }
 
                 }
             
@@ -111,8 +118,10 @@ namespace eLibraryManagement
                 SqlCommand cmd = new SqlCommand(
                 "SELECT * FROM accomodation_publish WHERE latitude = @latitude AND longitude = @longitude", conn);
 
+                
+
                 cmd.Parameters.AddWithValue("@latitude", latitude);
-                cmd.Parameters.AddWithValue("@latitude", longitude);
+                cmd.Parameters.AddWithValue("@longitude", longitude);
 
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.HasRows)
@@ -141,5 +150,38 @@ namespace eLibraryManagement
 
         }
 
+        private string RetrieveImageLinkFromDatabase()
+        {
+            string imageLink = ""; 
+
+            try
+            {
+                
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand("SELECT img_link FROM accomodation_publish WHERE latitude = @latitude AND longitude = @longitude", con);
+
+                    cmd.Parameters.AddWithValue("@latitude", latitude);
+                    cmd.Parameters.AddWithValue("@longitude", longitude);
+
+                    imageLink = cmd.ExecuteScalar()?.ToString(); 
+                }
+            }
+            catch (Exception ex)
+            {
+                
+                Response.Write("<script>alert('" + ex.Message + "');</script>");
+            }
+
+            return imageLink;
+        }
+
+
+        
+        
+       
     }
+
 }
+
