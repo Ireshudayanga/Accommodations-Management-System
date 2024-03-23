@@ -188,3 +188,13 @@ C:\Users\IRESH UDAYANGA\Desktop\Accommodations-Management-System\Dorm -\eLibrary
 C:\Users\IRESH UDAYANGA\Desktop\Accommodations-Management-System\Dorm -\eLibraryManagement\bin\System.Web.WebPages.xml
 C:\Users\IRESH UDAYANGA\Desktop\Accommodations-Management-System\Dorm -\eLibraryManagement\bin\System.Web.WebPages.Deployment.xml
 C:\Users\IRESH UDAYANGA\Desktop\Accommodations-Management-System\Dorm -\eLibraryManagement\bin\System.Web.WebPages.Razor.xml
+C:\Users\IRESH UDAYANGA\Desktop\Accommodations-Management-System\Dorm -\eLibraryManagement\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\IRESH UDAYANGA\Desktop\Accommodations-Management-System\Dorm -\eLibraryManagement\bin\Microsoft.Owin.dll
+C:\Users\IRESH UDAYANGA\Desktop\Accommodations-Management-System\Dorm -\eLibraryManagement\bin\Microsoft.Owin.Security.dll
+C:\Users\IRESH UDAYANGA\Desktop\Accommodations-Management-System\Dorm -\eLibraryManagement\bin\Newtonsoft.Json.dll
+C:\Users\IRESH UDAYANGA\Desktop\Accommodations-Management-System\Dorm -\eLibraryManagement\bin\Owin.dll
+C:\Users\IRESH UDAYANGA\Desktop\Accommodations-Management-System\Dorm -\eLibraryManagement\bin\Microsoft.AspNet.SignalR.Core.pdb
+C:\Users\IRESH UDAYANGA\Desktop\Accommodations-Management-System\Dorm -\eLibraryManagement\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\IRESH UDAYANGA\Desktop\Accommodations-Management-System\Dorm -\eLibraryManagement\bin\Microsoft.Owin.xml
+C:\Users\IRESH UDAYANGA\Desktop\Accommodations-Management-System\Dorm -\eLibraryManagement\bin\Microsoft.Owin.Security.xml
+C:\Users\IRESH UDAYANGA\Desktop\Accommodations-Management-System\Dorm -\eLibraryManagement\bin\Newtonsoft.Json.xml

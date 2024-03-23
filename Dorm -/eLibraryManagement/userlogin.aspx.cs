@@ -39,7 +39,7 @@ namespace eLibraryManagement
                     while (dr.Read())
                     {
 
-                        Session["username"] = dr.GetValue(0).ToString();
+                        Session["username"] = dr.GetValue(1).ToString();
                         Session["full_name"] = dr.GetValue(1).ToString();
                         Session["role"] = "landloard";
 

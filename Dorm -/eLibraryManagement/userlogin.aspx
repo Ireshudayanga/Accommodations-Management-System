@@ -127,12 +127,12 @@
                     <label> Username</label>
                     <div class="form-group">
                         <asp:TextBox CssClass="form-control" ID="TextBox3"
-                         runat="server" placeholder=""></asp:TextBox>
+                         runat="server" placeholder="landload id"></asp:TextBox>
                     </div>
                     <label>Password</label>
                     <div class="form-group">
                         <asp:TextBox CssClass="form-control" ID="TextBox4"
-                         runat="server" placeholder="" TextMode="Password"></asp:TextBox>
+                         runat="server" placeholder="password" TextMode="Password"></asp:TextBox>
                     </div>
                     <div class="form-group">
                         <center>
