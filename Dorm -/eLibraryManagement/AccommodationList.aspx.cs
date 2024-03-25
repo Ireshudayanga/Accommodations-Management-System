@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Web.Script.Serialization;
 using System.Web.UI;
@@ -11,6 +12,7 @@ namespace eLibraryManagement
     public partial class TestPublish : System.Web.UI.Page
     {
 
+        string landloadname;
         string latitude;
         string longitude;
 
@@ -25,6 +27,12 @@ namespace eLibraryManagement
             if (!IsPostBack)
             {
                 GetLocationsFromDatabase();
+
+                if (IsLandlord())
+                {
+                   
+                    LoadChatboxForLandlord();
+                }
 
             }
 
@@ -49,8 +57,91 @@ namespace eLibraryManagement
                              imgUploaded.ImageUrl = imageLink;
                         }
 
-                }
+                    LoadChatbox();
+
+                 }
             
+        }
+
+
+        private bool IsLandlord()
+        {
+            
+            return Session["role"].ToString() == "landloard";
+        }
+
+        protected void LoadChatboxForLandlord()
+        {
+            string landlordName = Session["username"].ToString();
+            SqlConnection conn = new SqlConnection(connectionString);
+
+            conn.Open();
+            string str = "SELECT * FROM chat WHERE Receiver = @LandlordName";
+            SqlCommand cmd = new SqlCommand(str, conn);
+            cmd.Parameters.AddWithValue("@LandlordName", landlordName);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            DataList2.DataSource = ds;
+            DataList2.DataBind();
+            conn.Close();
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            string username = Session["username"].ToString();
+
+            string time = DateTime.Now.ToString("MM-dd-yyyy HH:mm:ss");
+            string name = username;
+            string query = "insert into Chat (Sender, Receiver, Message, Date) values ('" + name + "','" + landloadname + "','" + TextBox1.Text + "','" + time + "')";
+
+            int i = ExecuteQuery(query);
+            if (i == 1)
+            {
+                TextBox1.Text = "";
+            }
+
+            LoadChatbox();
+        }
+
+        protected void Timer1_Tick(object sender, EventArgs e)
+        {
+            LoadChatbox();
+            if (IsLandlord())
+            {
+                LoadChatboxForLandlord();
+                LoadChatbox();
+            }
+        }
+
+        protected void LoadChatbox()
+        {
+            string username = Session["username"].ToString();
+
+            string name = username;
+            SqlConnection conn = new SqlConnection(connectionString);
+
+            conn.Open();
+            string str = "select * from chat where Receiver = '" + name + "' AND Sender = '" + landloadname + "' OR ( Sender = '" + name + "' AND Receiver = '" + landloadname + "') ";
+            SqlCommand cmd = new SqlCommand(str, conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            DataList2.DataSource = ds;
+            DataList2.DataBind();
+
+           
+
+        }
+
+        protected int ExecuteQuery(string query)
+        {
+            SqlConnection conn = new SqlConnection(connectionString);
+
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(query, conn);
+            return cmd.ExecuteNonQuery();
+
         }
 
         protected void GetLocationsFromDatabase()
@@ -116,7 +207,7 @@ namespace eLibraryManagement
                 }
 
                 SqlCommand cmd = new SqlCommand(
-                "SELECT * FROM accomodation_publish WHERE latitude = @latitude AND longitude = @longitude", conn);
+                "SELECT ap.*, lt.landload_name FROM accomodation_publish AS ap JOIN landload_tbl AS lt ON ap.publisher_id = lt.landload_id WHERE ap.latitude = @latitude AND ap.longitude = @longitude", conn);
 
                 
 
@@ -133,7 +224,7 @@ namespace eLibraryManagement
                         TextBox4.Text = dr.GetValue(2).ToString();
                         TextBox6.Text = dr.GetValue(3).ToString();
                         TextBox8.Text = dr.GetValue(4).ToString();
-                       
+                        landloadname = dr.GetValue(8).ToString();
                     }
 
                 }
@@ -177,9 +268,6 @@ namespace eLibraryManagement
             return imageLink;
         }
 
-
-        
-        
        
     }
 

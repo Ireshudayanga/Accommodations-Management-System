@@ -29,7 +29,7 @@ namespace eLibraryManagement
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            string username = Session["username"].ToString();
+            string username = "landload"; //Session["username"].ToString();
 
             string time = DateTime.Now.ToString("MM-dd-yyyy HH:mm:ss");
             string name = username;
@@ -67,7 +67,7 @@ namespace eLibraryManagement
 
         protected void LoadChatbox()
         {
-            string username = Session["username"].ToString();
+            string username = "landlord"; //Session["username"].ToString();
 
             string name = username;
             SqlConnection conn = new SqlConnection(connectionString);

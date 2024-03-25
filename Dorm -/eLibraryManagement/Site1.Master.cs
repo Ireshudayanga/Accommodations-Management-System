@@ -56,7 +56,7 @@ namespace eLibraryManagement
                     LinkButton9.Visible = false;
                     LinkButton10.Visible = false;
                 }
-                else if (Session["role"].Equals("landloarsd"))
+                else if (Session["role"].Equals("landloard"))
                 {
                     LinkButton2.Visible = false; //Login
                     LinkButton1.Visible = false; //Signup
@@ -130,7 +130,7 @@ namespace eLibraryManagement
             {
                 Response.Redirect("Error.aspx");
             }
-            else if (Session["role"].Equals("user"))
+            else if (Session["role"].Equals("user") || Session["role"].Equals("landloard"))
             {
                 Response.Redirect("AccommodationList.aspx");
             }

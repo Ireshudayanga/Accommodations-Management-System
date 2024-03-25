@@ -82,7 +82,7 @@ namespace eLibraryManagement
                         Session["role"] = "user";
                         Session["status"] = dr.GetValue(10).ToString();
                     }
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Login Successful');window.location ='home.aspx';", true);
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Login Successful. Welcome, " + Session["username"].ToString() + "'); window.location ='home.aspx';", true);
                 }
                 else 
                 {
