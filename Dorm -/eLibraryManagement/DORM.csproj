@@ -2209,6 +2209,8 @@
     <Content Include="TestMassege.aspx" />
     <Content Include="userlogin.aspx" />
     <Content Include="userprofile.aspx" />
+    <Content Include="wardenlocationmanagement.aspx" />
+    <Content Include="wardenlogin.aspx" />
     <Content Include="Web.config" />
     <Content Include="WebForm1.aspx" />
   </ItemGroup>
@@ -2325,6 +2327,20 @@
     </Compile>
     <Compile Include="userprofile.aspx.designer.cs">
       <DependentUpon>userprofile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wardenlocationmanagement.aspx.cs">
+      <DependentUpon>wardenlocationmanagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wardenlocationmanagement.aspx.designer.cs">
+      <DependentUpon>wardenlocationmanagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wardenlogin.aspx.cs">
+      <DependentUpon>wardenlogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wardenlogin.aspx.designer.cs">
+      <DependentUpon>wardenlogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>

@@ -26,6 +26,7 @@ namespace eLibraryManagement
                     LinkButton8.Visible = false;
                     LinkButton9.Visible = false;
                     LinkButton10.Visible = false;
+                    LinkButton7.Visible = true;
 
                 }
                 else if(Session["role"].Equals("user"))
@@ -70,6 +71,20 @@ namespace eLibraryManagement
                     LinkButton9.Visible = false;
                     LinkButton10.Visible = false;
                 }
+                else if (Session["role"].Equals("warden"))
+                {
+                    LinkButton2.Visible = false; //Login
+                    LinkButton1.Visible = false; //Signup
+                    LinkButton3.Visible = true; //Logout
+                    LinkButton4.Visible = false;
+                    LinkButton6.Visible = false; //admin login
+                    LinkButton11.Visible = false;
+                    LinkButton12.Visible = false;
+                    LinkButton8.Visible = false;
+                    LinkButton9.Visible = false;
+                    LinkButton10.Visible = true;
+                    LinkButton7.Visible = false;
+                }
             }
             catch (Exception ex)
             { 
@@ -84,6 +99,11 @@ namespace eLibraryManagement
             Response.Redirect("adminlogin.aspx");
         }
 
+        protected void LinkButton7_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("wardenlogin.aspx");
+        }
+        
         protected void LinkButton11_Click(object sender, EventArgs e)
         {
             Response.Redirect("adminAccommodationManagement.aspx");
@@ -106,7 +126,7 @@ namespace eLibraryManagement
 
         protected void LinkButton10_Click(object sender, EventArgs e)
         {
-            Response.Redirect("adminMemberManagement.aspx");
+            Response.Redirect("wardenlocationmanagement.aspx");
         }
 
         protected void LinkButton1_Click(object sender, EventArgs e)

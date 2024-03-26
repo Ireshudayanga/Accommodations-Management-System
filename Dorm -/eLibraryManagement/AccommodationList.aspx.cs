@@ -26,7 +26,16 @@ namespace eLibraryManagement
 
             if (!IsPostBack)
             {
-                GetLocationsFromDatabase();
+                if (Session["role"].ToString() == "landloard")
+                {
+                    customCardContainer.Visible = false;
+                }
+                else if (Session["role"].ToString() == "warden")
+                {
+                    massege.Visible = false; 
+                }
+
+                    GetLocationsFromDatabase();
 
                 if (IsLandlord())
                 {
@@ -149,7 +158,7 @@ namespace eLibraryManagement
             string connectionString = ConfigurationManager.ConnectionStrings["con"].ConnectionString;
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                using (SqlCommand cmd = new SqlCommand("SELECT latitude, longitude FROM accomodation_publish", con))
+                using (SqlCommand cmd = new SqlCommand("SELECT latitude, longitude FROM accomodation_publish where status = 'active'", con))
                 {
                     try
                     {
@@ -162,17 +171,20 @@ namespace eLibraryManagement
                             {
                                 double latitude;
                                 double longitude;
+                               
 
-                                if (double.TryParse(reader["latitude"].ToString(), out latitude) &&
-                                    double.TryParse(reader["longitude"].ToString(), out longitude))
-                                {
-                                    locations.Add(new { lat = latitude, lng = longitude });
-                                }
+                                    if (double.TryParse(reader["latitude"].ToString(), out latitude) &&
+                                   double.TryParse(reader["longitude"].ToString(), out longitude))
 
-                                else
-                                {
-                                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Error occur while fetching location');", true);
-                                }
+                                    {
+                                        locations.Add(new { lat = latitude, lng = longitude });
+                                    }
+
+                                    else
+                                    {
+                                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Error occur while fetching location');", true);
+                                    }
+                                
                             }
 
                             // Serialize the list to JSON

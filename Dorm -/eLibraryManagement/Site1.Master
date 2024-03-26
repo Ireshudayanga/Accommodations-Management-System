@@ -96,7 +96,11 @@
                     <div class="col-xl-12 col-sm-12 col-md-12 text-center" >
                         <p>
                             <asp:LinkButton Class ="footerlinks" ID="LinkButton6"
-                            runat="server" OnClick="LinkButton6_Click">Admin Login</asp:LinkButton> &nbsp
+                            runat="server" OnClick="LinkButton6_Click" Visible="False">Admin Login</asp:LinkButton> &nbsp
+
+                            <asp:LinkButton Class ="footerlinks" ID="LinkButton7"
+                            runat="server" OnClick="LinkButton7_Click" Visible="False">Warden Login</asp:LinkButton> &nbsp
+
                             <asp:LinkButton Class ="footerlinks" ID="LinkButton11"
                             runat="server" OnClick="LinkButton11_Click" Visible="False">Accommodation Management</asp:LinkButton> &nbsp
                             <asp:LinkButton Class ="footerlinks" ID="LinkButton12"

@@ -219,9 +219,6 @@
         </div>
     </div>
 
-         <div id="googleMap" style="width:100%;height:400px;"></div>
-         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiA9QVi_0Y2xLW-_dPGzdn-mUUFGKj-yU&callback=myMap"></script> 
-    
     </div>
 
 </asp:Content>

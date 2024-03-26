@@ -15,6 +15,15 @@ namespace eLibraryManagement
     {
 
         /// <summary>
+        /// customCardContainer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl customCardContainer;
+
+        /// <summary>
         /// imgUploaded control.
         /// </summary>
         /// <remarks>
@@ -85,6 +94,15 @@ namespace eLibraryManagement
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField ClickedMarkerLongitude;
+
+        /// <summary>
+        /// massege control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl massege;
 
         /// <summary>
         /// ScriptManager1 control.

@@ -99,7 +99,7 @@ namespace eLibraryManagement
 
                     string imgepath = "~/Accommodation_Img/" + getfilename;
 
-                    SqlCommand cmd = new SqlCommand("INSERT INTO accomodation_publish(publisher_id,contact,email,city,full_address,latitude,longitude,img_link) VALUES(@publisher_id,@contact,@email,@city,@full_address,@latitude,@longitude,@img_link)", con);
+                    SqlCommand cmd = new SqlCommand("INSERT INTO accomodation_publish(publisher_id,contact,email,city,full_address,latitude,longitude,img_link,status) VALUES(@publisher_id,@contact,@email,@city,@full_address,@latitude,@longitude,@img_link,@status)", con);
 
                     cmd.Parameters.AddWithValue("@publisher_id", TextBox1.Text.Trim());
                     cmd.Parameters.AddWithValue("@contact", TextBox2.Text.Trim());
@@ -109,6 +109,7 @@ namespace eLibraryManagement
                     cmd.Parameters.AddWithValue("@latitude", latitude);
                     cmd.Parameters.AddWithValue("@longitude", longitude);
                     cmd.Parameters.AddWithValue("@img_link", imgepath);
+                    cmd.Parameters.AddWithValue("@status", "pending");
 
                     //Execute the querry 
 

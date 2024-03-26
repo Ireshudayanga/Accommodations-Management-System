@@ -134,7 +134,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
-    <div class ="container">
+    <div  id="customCardContainer" class ="container" runat="server">
 
     <div id="map">
 
@@ -299,7 +299,8 @@
 
     </div>
 
-<div class="container customcard">
+<div id="massege" class="container customcard" runat="server" >
+
  <div class="card">
    <div class="card-body">
 

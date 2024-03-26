@@ -15,7 +15,7 @@ namespace eLibraryManagement
 
         string strcon = ConfigurationManager.ConnectionStrings["con"].ConnectionString;
 
-        protected void Page_Load(object sender, EventArgs e)
+        protected void Page_Load(object sender, EventArgs e) 
         {
             GridView1.DataBind();
             
